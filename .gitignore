@@ -1,0 +1,6 @@
+*
+!.gitignore
+!test/
+!test/*
+!test/.vscode/
+!test/.vscode/tasks.json

@@ -1,0 +1,64 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "cmake",
+			"command": "mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug ..",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "build",
+			"command": "cd build && make",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "scp",
+			"command": "scp",
+			"args": [
+				"./build/test_dma",
+				"./build/zc702_ad9467fmc",
+				"./build/axi_transfer",
+				"user@192.168.1.5:~/work/test1/"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"dependsOn": "build",
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "adc_spi",
+			"command": "scp",
+			"args": [
+				"adc_spi.sh",
+				"user@192.168.1.5:~/work/test1/"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"problemMatcher": []
+		}
+	]
+}
