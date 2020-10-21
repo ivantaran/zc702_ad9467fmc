@@ -4,3 +4,5 @@
 !test/*
 !test/.vscode/
 !test/.vscode/tasks.json
+!zc702_ad9467fmc.srcs/
+!zc702_ad9467fmc.srcs/**
